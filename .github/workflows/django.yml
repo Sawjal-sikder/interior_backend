@@ -1,4 +1,4 @@
-name: Django CI
+name: Django CI + FTP Deploy
 
 on:
   push:
@@ -10,30 +10,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
-        python-version: [3.12.4]
-
+        python-version: [3.12]  
     steps:
-    - name: 🔍 Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: 🐍 Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5  
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: 📦 Install Dependencies
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: 🧪 Run Django Tests
+    - name: Run Tests
       run: |
         python manage.py test
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
-    - name: 📤 Deploy via FTP
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 📁 FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        server: ${{ secrets.FTP_SERVER_PTI }}
+        username: ${{ secrets.FTP_USERNAME_PTI }}
+        password: ${{ secrets.FTP_PASSWORD_PTI }}
