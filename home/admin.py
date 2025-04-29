@@ -8,3 +8,9 @@ class BanarAdmin(admin.ModelAdmin):
     list_display = ["title","short_description", "is_active"]
 
 admin.site.register(Banar, BanarAdmin)
+
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ["title","description", "is_active"]
+
+admin.site.register(Service, ServiceAdmin)
