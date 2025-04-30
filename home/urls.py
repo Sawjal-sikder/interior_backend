@@ -6,6 +6,7 @@ from .views import *
 router = DefaultRouter()
 router.register(r'banars', BanarViewSet, basename='banar')
 router.register(r'service', ServiceViewSet, basename='service')
+router.register(r'product', ProductViewSet, basename='product')
 
 urlpatterns = [
     path('', include(router.urls)),
