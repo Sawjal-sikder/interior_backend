@@ -4,8 +4,8 @@ from rest_framework.routers import DefaultRouter
 from .views import *
 
 router = DefaultRouter()
-router.register(r'banars', BanarViewSet)
-router.register(r'service', ServiceViewSet)
+router.register(r'banars', BanarViewSet, basename='banar')
+router.register(r'service', ServiceViewSet, basename='service')
 
 urlpatterns = [
     path('', include(router.urls)),
