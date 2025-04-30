@@ -19,3 +19,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ["name","description","price", "is_active"]
 
 admin.site.register(Product, ProductAdmin)
+
+
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ["title","description", "is_active"]
+
+admin.site.register(Portfolio, PortfolioAdmin)
