@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import *
+from ckeditor.widgets import CKEditorWidget
+from django import forms
 # Register your models here.
 
 
@@ -43,3 +45,24 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ["title","description", "rating"]
 admin.site.register(Review, ReviewAdmin)
 
+
+
+
+class LatestProjectAdmin(admin.ModelAdmin):
+    list_display = ["title","description", "is_active"]
+admin.site.register(LatestProject, LatestProjectAdmin)
+
+
+
+class ChooseusAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorWidget())  # rich text editor
+
+    class Meta:
+        model = Chooseus
+        fields = '__all__'
+
+class ChooseusAdmin(admin.ModelAdmin):
+    form = ChooseusAdminForm
+    list_display = ["title", "description", "is_active"]
+
+admin.site.register(Chooseus, ChooseusAdmin)

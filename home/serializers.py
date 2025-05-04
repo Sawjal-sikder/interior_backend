@@ -42,3 +42,15 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = '__all__'
+
+
+class LatestProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LatestProject
+        fields = '__all__'
+
+
+class ChooseusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chooseus
+        fields = '__all__'

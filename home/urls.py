@@ -11,6 +11,8 @@ router.register(r'portfolio', PortfolioViewSet, basename='portfolio')
 router.register(r'contactUs', ContactUsViewSet, basename='ContactUs')
 router.register(r'Client', ClientViewSet, basename='client')
 router.register(r'Review', ReviewViewSet, basename='Review')
+router.register(r'LatestProject', LatestProjectViewSet, basename='LatestProject')
+router.register(r'Chooseus', ChooseusViewSet, basename='Chooseus')
 
 urlpatterns = [
     path('', include(router.urls)),

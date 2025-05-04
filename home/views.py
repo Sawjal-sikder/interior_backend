@@ -35,3 +35,13 @@ class ClientViewSet(viewsets.ModelViewSet):
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+
+class LatestProjectViewSet(viewsets.ModelViewSet):
+    queryset = LatestProject.objects.filter(is_active=True)
+    serializer_class = LatestProjectSerializer
+
+
+class ChooseusViewSet(viewsets.ModelViewSet):
+    queryset = Chooseus.objects.filter(is_active=True)
+    serializer_class = ChooseusSerializer
