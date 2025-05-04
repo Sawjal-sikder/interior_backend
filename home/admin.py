@@ -36,3 +36,10 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ["title","description", "is_active"]
 admin.site.register(Client, ClientAdmin)
 
+
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ["title","description", "rating"]
+admin.site.register(Review, ReviewAdmin)
+
