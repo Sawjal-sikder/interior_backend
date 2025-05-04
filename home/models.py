@@ -36,9 +36,28 @@ class Product(models.Model):
 class Portfolio(models.Model):
     title = models.CharField(max_length=55)
     description = models.TextField()
-    image = models.ImageField(upload_to='Service/')
+    image = models.ImageField(upload_to='portfolio/')
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
 
+class ContactUs(models.Model):
+    name = models.CharField(max_length=55)
+    email = models.EmailField()
+    phone = models.CharField(max_length=11)
+    message = models.TextField()
+    
+
+    def __str__(self):
+        return self.naem
+
+
+class Client(models.Model):
+    title = models.CharField(max_length=55)
+    description = models.TextField()
+    image = models.ImageField(upload_to='Client/')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title

@@ -8,6 +8,8 @@ router.register(r'banars', BanarViewSet, basename='banar')
 router.register(r'service', ServiceViewSet, basename='service')
 router.register(r'product', ProductViewSet, basename='product')
 router.register(r'portfolio', PortfolioViewSet, basename='portfolio')
+router.register(r'contactUs', ContactUsViewSet, basename='ContactUs')
+router.register(r'Client', ClientViewSet, basename='client')
 
 urlpatterns = [
     path('', include(router.urls)),
