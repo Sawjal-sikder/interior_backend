@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from ckeditor_uploader.fields import RichTextUploadingField
-
+from django_ckeditor_5.fields import CKEditor5Field # type: ignore
 # Create your models here.
 
 class Banar(models.Model):
@@ -88,7 +87,7 @@ class LatestProject(models.Model):
 
 class Chooseus(models.Model):
     title = models.CharField(max_length=55)
-    description = RichTextUploadingField()
+    description = CKEditor5Field('Description', config_name='default')
     is_active = models.BooleanField(default=True)
 
     def __str__(self):

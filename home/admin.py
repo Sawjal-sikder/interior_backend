@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from ckeditor.widgets import CKEditorWidget
+from django_ckeditor_5.widgets import CKEditor5Widget # type: ignore
 from django import forms
 # Register your models here.
 
@@ -55,7 +55,7 @@ admin.site.register(LatestProject, LatestProjectAdmin)
 
 
 class ChooseusAdminForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorWidget())  # rich text editor
+    description = forms.CharField(widget=CKEditor5Widget(config_name='default'))
 
     class Meta:
         model = Chooseus
