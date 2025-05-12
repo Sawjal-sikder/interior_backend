@@ -13,6 +13,7 @@ router.register(r'Client', ClientViewSet, basename='client')
 router.register(r'Review', ReviewViewSet, basename='Review')
 router.register(r'LatestProject', LatestProjectViewSet, basename='LatestProject')
 router.register(r'Chooseus', ChooseusViewSet, basename='Chooseus')
+router.register(r'Gallary', GallaryViewSet, basename='Gallary')
 
 urlpatterns = [
     path('', include(router.urls)),

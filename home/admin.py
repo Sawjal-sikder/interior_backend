@@ -66,3 +66,8 @@ class ChooseusAdmin(admin.ModelAdmin):
     list_display = ["title", "description", "is_active"]
 
 admin.site.register(Chooseus, ChooseusAdmin)
+
+class GallaryAdmin(admin.ModelAdmin):
+    list_display = ["title", "is_active"]
+
+admin.site.register(Gallary, GallaryAdmin)

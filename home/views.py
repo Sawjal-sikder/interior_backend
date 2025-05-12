@@ -45,3 +45,8 @@ class LatestProjectViewSet(viewsets.ModelViewSet):
 class ChooseusViewSet(viewsets.ModelViewSet):
     queryset = Chooseus.objects.filter(is_active=True)
     serializer_class = ChooseusSerializer
+
+
+class GallaryViewSet(viewsets.ModelViewSet):
+    queryset = Gallary.objects.filter(is_active=True)
+    serializer_class = GallarySerializer

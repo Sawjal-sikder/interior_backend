@@ -54,3 +54,9 @@ class ChooseusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chooseus
         fields = '__all__'
+
+
+class GallarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gallary
+        fields = '__all__'
